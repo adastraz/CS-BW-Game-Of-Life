@@ -60,8 +60,10 @@ function App() {
   const [med, setMed] = useState(true)
   const [slow, setSlow] = useState(false)
   const [speed, setSpeed] = useState(100)
-  const [red, setRed] = useState(true)
-  const [black, setBlack] = useState(false)
+  const [red, setRed] = useState(false)
+  const [black, setBlack] = useState(true)
+  const [blue, setBlue] = useState(false)
+  const [green, setGreen] = useState(false)
   const [color, setColor] = useState('black')
   const [running, setRunning] = useState(false)
 
@@ -70,8 +72,12 @@ function App() {
       setColor('red')
     } else if(black === true) {
       setColor('black')
+    } else if(blue === true) {
+      setColor('blue')
+    } else if(green === true) {
+      setColor('green')
     }
-  }, [red, black])
+  }, [red, black, blue, green])
 
   useEffect(() => {
     if(fast === true){
@@ -87,12 +93,28 @@ function App() {
   runningRef.current = running
 
   const changeRed = () => {
+    setGreen(false)
+    setBlue(false)
     setBlack(false)
     setRed(true)
   }
   const changeBlack = () => {
+    setGreen(false)
+    setBlue(false)
     setRed(false)
     setBlack(true)
+  }
+  const changeBlue = () => {
+    setGreen(false)
+    setRed(false)
+    setBlack(false)
+    setBlue(true)
+  }
+  const changeGreen = () => {
+    setBlue(false)
+    setRed(false)
+    setBlack(false)
+    setGreen(true)
   }
 
   const changeFast = () => {
@@ -216,6 +238,18 @@ function App() {
           </div>
           <button onClick={() => {
             if(!running){
+              setRows(numRow-1) 
+              const rows = []
+              for(let i=0; i < numRow; i++){
+                rows.push(Array.from(Array(numCol), () => 0))
+              }  
+              setGrid(generateEmptyGrid(numCol, numRow))
+            }}}
+          >
+            remove row
+          </button>
+          <button onClick={() => {
+            if(!running){
               setRows(numRow+1) 
               const rows = []
               for(let i=0; i < numRow; i++){
@@ -227,6 +261,8 @@ function App() {
             add row
           </button>
           <button onClick={() => {
+            setRows(20)
+            setCols(55)
             setGrid(presetOne())
             }}
           >
@@ -234,8 +270,16 @@ function App() {
           </button>
         </div>
         <div className='colors'>
-          <button className={red ? 'red colorbut': 'colorbut'} onClick={() => changeRed()}/>
-          <button className={black ? 'black colorbut' : 'colorbut'} onClick={() => changeBlack()}/>
+          <div className='columns'>
+            <div className='flexes'>
+              <button className={red ? 'red colorbut': 'colorbut redout'} onClick={() => changeRed()}/>
+              <button className={black ? 'black colorbut' : 'colorbut'} onClick={() => changeBlack()}/>
+            </div>
+            <div className='flexes'>
+              <button className={blue ? 'blue colorbut': 'colorbut blueout'} onClick={() => changeBlue()}/>
+              <button className={green ? 'green colorbut' : 'colorbut greenout'} onClick={() => changeGreen()}/>
+            </div>
+          </div>
           <button className={fast ? 'current speed' : 'speed'} onClick={() => changeFast()}>fast</button>
           <button className={med ? 'current speed' : 'speed'} onClick={() => changeMed()}>medium</button>
           <button className={slow ? 'current speed' : 'speed'} onClick={() => changeSlow()}>slow</button>

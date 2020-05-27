@@ -87,21 +87,47 @@
   background-color: red;
   border: none;
 }
-
+.blue{
+  padding: 5px;
+  background-color: blue;
+  border: none;
+}
+.green{
+  padding: 5px;
+  background-color: green;
+  border: none;
+}
 .black{
   padding: 5px;
   background-color: black;
   border: none;
 }
+.flexes{
+  display: flex;
+
+}
+.columns{
+  display:flex;
+  flex-direction:column;
+}
+.greenout{
+  border: 2px solid green
+}
+.blueout{
+  border: 2px solid blue
+}
+.redout{
+  border: 2px solid red
+}
+
 
 .speed{
   outline: none;
   margin: 10px;
-  width: 80px;
+  width: 60px;
   height: 20px;
 }
 
 .current{
   background-color: green;
-
 }
