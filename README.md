@@ -2,11 +2,8 @@
 
 ---
 
-**NOTE: This is not a data science project.** If you're in the data
-science track and want to do a DS-specific project, jump to the [Data
-Science Build Week
-Repo](https://github.com/LambdaSchool/CS-Data-Science-Build-Week-1).
-
+**NOTE: This project is hosted through AWS Amplify** 
+https://tyler-thompson.d2vwd930unen85.amplifyapp.com/
 ---
 
 Welcome to John Conway's "Game of Life"! This is a computer science
