@@ -68,3 +68,28 @@
   justify-content: center;
   align-items:center;
 }
+
+.colorbut{
+  height: 20px;
+  width: 20px;
+  background-color: white;
+  margin: 10px;
+  outline: none;
+}
+
+.colors{
+  display: flex;
+  flex-direction: column;
+}
+
+.red{
+  padding: 5px;
+  background-color: red;
+  border: none;
+}
+
+.black{
+  padding: 5px;
+  background-color: black;
+  border: none;
+}
