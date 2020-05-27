@@ -26,7 +26,7 @@ const generateEmptyGrid = (col, row) => {
 
 function App() {
   const [numCol, setCols] = useState(55)
-  const [numRow, setRows] = useState(10)
+  const [numRow, setRows] = useState(20)
   const [grid, setGrid] = useState(() => {
     return generateEmptyGrid(numCol, numRow)
   })
@@ -113,7 +113,7 @@ function App() {
     })
     
     setTimeout(runSimulation, speed)
-  }, [speed])
+  }, [speed, numCol, numRow])
 
   console.log(speed)
 
@@ -189,12 +189,12 @@ function App() {
           </div>
           <button onClick={() => {
             if(!running){
-              setCols(numCol+5) 
+              setRows(numRow+1) 
               const rows = []
               for(let i=0; i < numRow; i++){
                 rows.push(Array.from(Array(numCol), () => 0))
               }  
-              setGrid(rows)
+              setGrid(generateEmptyGrid(numCol, numRow))
             }
           }
         }>
@@ -204,9 +204,9 @@ function App() {
         <div className='colors'>
           <button className={red ? 'red colorbut': 'colorbut'} onClick={() => changeRed()}/>
           <button className={black ? 'black colorbut' : 'colorbut'} onClick={() => changeBlack()}/>
-          <button onClick={() => changeFast()}>fast</button>
-          <button onClick={() => changeMed()}>medium</button>
-          <button onClick={() => changeSlow()}>slow</button>
+          <button className={fast ? 'current speed' : 'speed'} onClick={() => changeFast()}>fast</button>
+          <button className={med ? 'current speed' : 'speed'} onClick={() => changeMed()}>medium</button>
+          <button className={slow ? 'current speed' : 'speed'} onClick={() => changeSlow()}>slow</button>
         </div>
       </div>
     </>
