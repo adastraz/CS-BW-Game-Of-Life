@@ -47,6 +47,16 @@ function App() {
     }
   }, [red, black])
 
+  useEffect(() => {
+    if(fast === true){
+      setSpeed(10)
+    } else if (med === true){
+      setSpeed(100)
+    } else if(slow === true) {
+      setSpeed(1000)
+    }
+  }, [fast, med, slow])
+
   const runningRef = useRef(running)
   runningRef.current = running
 
@@ -58,6 +68,23 @@ function App() {
     setRed(false)
     setBlack(true)
   }
+
+  const changeFast = () => {
+    setMed(false)
+    setSlow(false)
+    setFast(true)
+  }
+  const changeMed = () => {
+    setSlow(false)
+    setFast(false)
+    setMed(true)
+  }
+  const changeSlow = () => {
+    setFast(false)
+    setMed(false)
+    setSlow(true)
+  }
+  console.log(speed)
 
   const runSimulation = useCallback(() => {
     if (!runningRef.current){
@@ -86,9 +113,9 @@ function App() {
     })
     
     setTimeout(runSimulation, speed)
-  }, [])
+  }, [speed])
 
-  console.log(grid)
+  console.log(speed)
 
   return (
     <>
@@ -137,7 +164,7 @@ function App() {
           <h1>Cellular Automata and Conway's "Game of Life"</h1>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: `repeat(${numCols}, 20px)`
+            gridTemplateColumns: `repeat(${numCol}, 20px)`
           }}>
             {grid.map((rows, i) => 
               rows.map((col, k) => (
@@ -177,9 +204,9 @@ function App() {
         <div className='colors'>
           <button className={red ? 'red colorbut': 'colorbut'} onClick={() => changeRed()}/>
           <button className={black ? 'black colorbut' : 'colorbut'} onClick={() => changeBlack()}/>
-          <button>fast</button>
-          <button>medium</button>
-          <button>slow</button>
+          <button onClick={() => changeFast()}>fast</button>
+          <button onClick={() => changeMed()}>medium</button>
+          <button onClick={() => changeSlow()}>slow</button>
         </div>
       </div>
     </>
