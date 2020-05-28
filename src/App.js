@@ -283,54 +283,70 @@ function App() {
               ))
             )}
           </div>
-          <button onClick={() => {
-            if(!running){
-              setRows(numRow-1) 
-              const rows = []
-              for(let i=0; i < numRow; i++){
-                rows.push(Array.from(Array(numCol), () => 0))
-              }  
-              setGrid(generateEmptyGrid(numCol, numRow))
-            }}}
-          >
-            remove row
-          </button>
-          <button onClick={() => {
-            if(!running){
-              setRows(numRow+1) 
-              const rows = []
-              for(let i=0; i < numRow; i++){
-                rows.push(Array.from(Array(numCol), () => 0))
-              }  
-              setGrid(generateEmptyGrid(numCol, numRow))
-            }}}
-          >
-            add row
-          </button>
-          <button onClick={() => {
-            setRows(20)
-            setCols(55)
-            setGrid(presetOne())
-            }}
-          >
-            Preset One
-          </button>
-          <button onClick={() => {
-            setRows(20)
-            setCols(55)
-            setGrid(presetTwo())
-            }}
-          >
-            Preset Two
-          </button>
-          <button onClick={() => {
-            setRows(20)
-            setCols(55)
-            setGrid(presetThree())
-            }}
-          >
-            Preset Three
-          </button>
+          <div className='bottom'>
+            <div className='editgrid'>
+              <button 
+              className='editbutton'
+              onClick={() => {
+                if(!running){
+                  setRows(numRow-1) 
+                  const rows = []
+                  for(let i=0; i < numRow; i++){
+                    rows.push(Array.from(Array(numCol), () => 0))
+                  }  
+                  setGrid(generateEmptyGrid(numCol, numRow))
+                }}}
+              >
+                remove row
+              </button>
+              <button 
+              className='editbutton'
+              onClick={() => {
+                if(!running){
+                  setRows(numRow+1) 
+                  const rows = []
+                  for(let i=0; i < numRow; i++){
+                    rows.push(Array.from(Array(numCol), () => 0))
+                  }  
+                  setGrid(generateEmptyGrid(numCol, numRow))
+                }}}
+              >
+                add row
+              </button>
+            </div>
+            <div className='presets'>
+              <button 
+              className='preset'
+              onClick={() => {
+                setRows(20)
+                setCols(55)
+                setGrid(presetOne())
+                }}
+              >
+                Preset One
+              </button>
+              <button 
+              className='preset'
+              onClick={() => {
+                setRows(20)
+                setCols(55)
+                setGrid(presetTwo())
+                }}
+              >
+                Preset Two
+              </button>
+              <button 
+              className='preset'
+              onClick={() => {
+                setRows(20)
+                setCols(55)
+                setGrid(presetThree())
+                }}
+              >
+                Preset Three
+              </button>
+            </div>
+          </div>
         </div>
         <div className='colors'>
           <div className='columns'>

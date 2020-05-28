@@ -63,9 +63,10 @@
   padding: 5px;
   border-radius:15px;
   width: 80px;
+  background-color: slategrey;
   outline: none;
   border:4px solid ivory;
-  color: dimgrey;
+  color: whitesmoke;
   font-weight:bold;
 }
 
@@ -153,4 +154,45 @@
 .current{
   background-color: ivory;
   color: slategrey;
+}
+
+.bottom{
+  display: flex;
+  width: 85%;
+  justify-content: space-around;
+
+}
+
+.editgrid{
+  display:flex;
+  width: 300px;
+  justify-content: space-between;
+  margin-top: 20px;
+  height: 50px;
+}
+.editbutton{
+  width: 120px;
+  background-color: slategrey;
+  border: 5px solid lightgrey;
+  font-weight: bold;
+  color: ivory;
+  border-radius: 15px;
+}
+
+.presets{
+  display:flex;
+  width: 380px;
+  justify-content: space-between;
+  margin-top: 20px;
+  height: 80px;
+}
+
+.preset{
+  width: 80px;
+  border-radius: 15px;
+  background-color: slategrey;
+  border: 5px solid lightgrey;
+  font-weight: bold;
+  color: ivory;
+  border-radius: 15x;
 }
