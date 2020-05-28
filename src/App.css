@@ -160,14 +160,14 @@
   display: flex;
   width: 85%;
   justify-content: space-around;
-
+  align-items: center;
 }
 
 .editgrid{
   display:flex;
   width: 300px;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 30px;
   height: 50px;
 }
 .editbutton{
@@ -177,13 +177,14 @@
   font-weight: bold;
   color: ivory;
   border-radius: 15px;
+  outline: none;
 }
 
 .presets{
   display:flex;
   width: 380px;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 30px;
   height: 80px;
 }
 
@@ -195,4 +196,5 @@
   font-weight: bold;
   color: ivory;
   border-radius: 15x;
+  outline: none;
 }
